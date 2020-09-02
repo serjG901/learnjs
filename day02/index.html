@@ -1,0 +1,47 @@
+<p>Bulb without dimmer</p>
+</br>
+<button id="toggle">Включить</button>
+</br>
+<img id="bulb" src="bulb.png"/>
+</br>
+<hr />
+<p>Bulb with dimmer</p>
+</br>
+<div>
+  <input type="range" id="bulbRange"
+         min="0" max="100" value="0" step="1">
+  <label for="bulbRang">Intensivity light</label>
+</div>
+</br>
+<img id="bulbDimmable" src="bulb.png"/>
+<style>
+#toggle {
+    background: #6215dd;
+    color: white;
+}
+#bulb {
+    width: 100px;
+    filter: grayscale(100%);
+}
+#bulbDimmable {
+    width: 100px;
+    filter: grayscale(100%);
+}
+</style>
+<script>
+const bulbToggle = document.getElementById("toggle");
+bulbToggle.addEventListener("click", () => {
+    const bulb = document.getElementById("bulb");
+    let status = bulbToggle.textContent;
+
+     
+	  bulb.style.filter = (status == "Включить") ? 'grayscale(0%)' :  'grayscale(100%)';
+    bulbToggle.innerText = (status == "Включить") ? "Выключить" : "Включить";
+
+});
+const bulbRange = document.getElementById("bulbRange");
+const bulbDimmable = document.getElementById("bulbDimmable");
+bulbRange.addEventListener("change", () => {
+	bulbDimmable.style.filter = `grayscale(${100-bulbRange.value}%)`;
+});
+</script>

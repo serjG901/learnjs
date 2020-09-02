@@ -30,17 +30,19 @@
 </style>
 <script>
 const bulbToggle = document.getElementById("toggle");
-bulbToggle.addEventListener("click", () => {
-    const bulb = document.getElementById("bulb");
-    let status = bulbToggle.textContent;
 
-     
-	  bulb.style.filter = (status == "Включить") ? 'grayscale(0%)' :  'grayscale(100%)';
-    bulbToggle.innerText = (status == "Включить") ? "Выключить" : "Включить";
+bulbToggle.addEventListener("click", () => {
+  const bulb = document.getElementById("bulb");
+  let status = bulbToggle.textContent;
+ 
+  bulb.style.filter = (status == "Включить") ? 'grayscale(0%)' :  'grayscale(100%)';
+  bulbToggle.innerText = (status == "Включить") ? "Выключить" : "Включить";
 
 });
+
 const bulbRange = document.getElementById("bulbRange");
 const bulbDimmable = document.getElementById("bulbDimmable");
+
 bulbRange.addEventListener("change", () => {
 	bulbDimmable.style.filter = `grayscale(${100-bulbRange.value}%)`;
 });

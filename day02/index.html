@@ -2,7 +2,7 @@
 </br>
 <button id="toggle">Включить</button>
 </br>
-<img id="bulb" src="bulb.png"/>
+<img id="bulb" src="bulb.png" />
 </br>
 <hr />
 <p>Bulb with dimmer</p>
@@ -12,67 +12,69 @@
   <label for="bulbRang">Intensivity light</label>
 </div>
 </br>
-<img id="bulbDimmable" src="bulb.png"/>
+<img id="bulbDimmable" src="bulb.png" />
 
 <style>
-#toggle {
-  background: #6215dd;
-  color: white;
-}
-#bulb {
-  width: 100px;
-  filter: grayscale(100%);
-}
-#bulbDimmable {
-  width: 100px;
-  filter: grayscale(100%);
-}
+  #toggle {
+    background: #6215dd;
+    color: white;
+  }
+
+  #bulb {
+    width: 100px;
+    filter: grayscale(100%);
+  }
+
+  #bulbDimmable {
+    width: 100px;
+    filter: grayscale(100%);
+  }
 </style>
 
 <script>
-//оперделяем в константу кнопку с id='toggle' для обращения к ней
-const bulbToggle = document.getElementById("toggle");
+  //оперделяем в константу кнопку с id='toggle' для обращения к ней
+  const bulbToggle = document.getElementById("toggle");
 
-//оперделяем в константу лампочку с id='bulb' для обращения к ней
-const bulb = document.getElementById("bulb");
+  //оперделяем в константу лампочку с id='bulb' для обращения к ней
+  const bulb = document.getElementById("bulb");
 
-/*
-добавляем к bulbToggle прослушиватель ( .addEventListener ) события click.
-Если нажмем на кнопку - событие сработает и выполнит код стрелочной функции
-() => {код для выполнения}
-*/
-bulbToggle.addEventListener("click", () => {
-  //оперделяем в переменную текст что записан в кнопке bulbToggle
-  let status = bulbToggle.textContent;
-  
   /*
-  далее для присвоения значений тексту кнопки ( внутренний текст innerText )
-  и виду лампочки ( цветное/серое filter:grayscale(%) )
-  я использовал тернарный оператор вида: 
-  переменная = ( условие )? ( значение если  true ) : ( значение если условие false )
+  добавляем к bulbToggle прослушиватель ( .addEventListener ) события click.
+  Если нажмем на кнопку - событие сработает и выполнит код стрелочной функции
+  () => {код для выполнения}
   */
-  bulb.style.filter = ( status == "Включить" ) ? "grayscale(0%)" :  "grayscale(100%)";
-  bulbToggle.innerText = ( status == "Включить" ) ? "Выключить" : "Включить";
-});
+  bulbToggle.addEventListener("click", () => {
+    //оперделяем в переменную текст что записан в кнопке bulbToggle
+    let status = bulbToggle.textContent;
 
-//оперделяем в константу ползунок range с id='bulbRange' для обращения к нему
-const bulbRange = document.getElementById("bulbRange");
+    /*
+    далее для присвоения значений тексту кнопки ( внутренний текст innerText )
+    и виду лампочки ( цветное/серое filter:grayscale(%) )
+    я использовал тернарный оператор вида: 
+    переменная = ( условие )? ( значение если  true ) : ( значение если условие false )
+    */
+    bulb.style.filter = (status == "Включить") ? "grayscale(0%)" : "grayscale(100%)";
+    bulbToggle.innerText = (status == "Включить") ? "Выключить" : "Включить";
+  });
 
-//оперделяем в константу лампочку с id='bulbDimmable' для обращения к ней
-const bulbDimmable = document.getElementById("bulbDimmable");
+  //оперделяем в константу ползунок range с id='bulbRange' для обращения к нему
+  const bulbRange = document.getElementById("bulbRange");
 
-/*
-добавляем к bulbRange прослушиватель события change 
-(при изменении значения ползунка будет вызываться код струлочной функции)
-*/
-bulbRange.addEventListener("change", () => {
+  //оперделяем в константу лампочку с id='bulbDimmable' для обращения к ней
+  const bulbDimmable = document.getElementById("bulbDimmable");
+
   /*
-  .style - обращение к стилям лампочки
-  `grayscale(${100-bulbRange.value}%)` - выражение с обратными ковычками `(так где тильда ~ и ё)
-  и в него можно вставлять вычисляемые значения при помощи ${}
-  bulbRange.value - значение ползунка
-  100-bulbRange.value - значение для grayscale, так как 100% это серый, в 0% цветной
+  добавляем к bulbRange прослушиватель события change 
+  (при изменении значения ползунка будет вызываться код струлочной функции)
   */
-  bulbDimmable.style.filter = `grayscale(${100-bulbRange.value}%)`;
-});
+  bulbRange.addEventListener("change", () => {
+    /*
+    .style - обращение к стилям лампочки
+    `grayscale(${100-bulbRange.value}%)` - выражение с обратными ковычками `(там где кнопка с тильдой ~ и ё)
+    и в него можно вставлять вычисляемые значения при помощи ${}
+    bulbRange.value - значение ползунка
+    100-bulbRange.value - значение для grayscale, так как 100% это серый, в 0% цветной
+    */
+    bulbDimmable.style.filter = `grayscale(${100 - bulbRange.value}%)`;
+  });
 </script>

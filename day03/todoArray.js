@@ -36,16 +36,20 @@ for (i = 0; i < todoArray.length; i++) {
 
 function addTodo(newTodo) {
     todoArray.push(newTodo);
+    //return todoArray;
 };
 
 function removeTodo(todoId) {
     todoArray.splice(todoId, 1);
+    //return todoArray;
 };
 
 function changeTodoTitle(todoId, newTitle) {
     todoArray[todoId].title = newTitle;
+    //return todoArray;
 };
 
 function changeTodoStatus(todoId, isComplete) {
     todoArray[todoId].complete = isComplete;
+    //return todoArray;
 };

@@ -1,3 +1,38 @@
 <script>
-    alert("I'm JavaScript");
+    //task1
+    let admin;
+    let name;
+
+    name = "John";
+    admin = name;
+
+    alert(admin);
+
+    //task2
+    let planetEarth;
+    let currentUser;
+
+    //task3
+    const BIRTHDAY = '04.09.2000';
+    const age = howOldAreYou(BIRTHDAY);
+
+    alert(`Your birthday is ${BIRTHDAY}, and now you are ${age} years old`);
+
+    let setBDay = prompt('Введите дату Вашего дня рождения в формате дд.мм.гггг', BIRTHDAY);
+
+    alert(`Сейчас Вам ${ howOldAreYou(setBDay)} полных лет`);
+
+    function msecInYear(mSec1, mSec2) {
+        let diffMsec = (mSec1 > mSec2) ? (mSec1 - mSec2) : (mSec2 - mSec1);
+        let msecInYear = diffMsec / (3600 * 24 * 1000 * 365.2425);
+        return msecInYear = Math.trunc(msecInYear);
+    };
+
+    function howOldAreYou(bd) {
+        let bdayInISO = bd[6] + bd[7] + bd[8] + bd[9] + '-' + bd[3] + bd[4] + '-' + bd[0] + bd[1];
+        let bdayInMsec = Date.parse(bdayInISO);
+        let dateNowInMsec = Date.now();
+        let fullYear = msecInYear(bdayInMsec, dateNowInMsec);
+        return fullYear;
+    };
 </script>

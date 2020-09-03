@@ -23,7 +23,14 @@ changeTodoTitle(2, 'NEWtitleForId2');
 changeTodoStatus(1, true);
 
 for (i = 0; i < todoArray.length; i++) {
-    if (i === 4) { alert('todo with id 4 have been delete') };
+    switch (i) {
+        case 1: alert('todo with id 1 complete TRUE');
+            break;
+        case 4: alert('todo with id 4 have been delete');
+            break;
+        case 9: alert('todo with id 10 have been add handly');
+            break;
+    };
     alert(JSON.stringify(todoArray[i]));
 };
 

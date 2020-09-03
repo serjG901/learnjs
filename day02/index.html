@@ -53,8 +53,8 @@
     я использовал тернарный оператор вида: 
     переменная = ( условие )? ( значение если  true ) : ( значение если условие false )
     */
-    bulb.style.filter = (status == "Включить") ? "grayscale(0%)" : "grayscale(100%)";
-    bulbToggle.innerText = (status == "Включить") ? "Выключить" : "Включить";
+    bulb.style.filter = (status === "Включить") ? "grayscale(0%)" : "grayscale(100%)";
+    bulbToggle.innerText = (status === "Включить") ? "Выключить" : "Включить";
   });
 
   //оперделяем в константу ползунок range с id='bulbRange' для обращения к нему
@@ -73,7 +73,7 @@
     `grayscale(${100-bulbRange.value}%)` - выражение с обратными ковычками `(там где кнопка с тильдой ~ и ё)
     и в него можно вставлять вычисляемые значения при помощи ${}
     bulbRange.value - значение ползунка
-    100-bulbRange.value - значение для grayscale, так как 100% это серый, в 0% цветной
+    100-bulbRange.value - значение для grayscale, так как 100% это серый, а 0% цветной
     */
     bulbDimmable.style.filter = `grayscale(${100 - bulbRange.value}%)`;
   });

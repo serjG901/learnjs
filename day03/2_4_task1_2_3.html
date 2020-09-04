@@ -1,38 +1,45 @@
-<script>
-    //task1
-    let admin;
-    let name;
+<!DOCTYPE html>
+<html>
 
-    name = "John";
-    admin = name;
+<body>
+    <script>
+        //task1
+        let admin;
+        let name;
 
-    alert(admin);
+        name = "John";
+        admin = name;
 
-    //task2
-    let ourPlanetName = "Earth";
-    let currentUser = "Serj";
+        alert(admin);
 
-    //task3
-    const BIRTHDAY = '04.09.2000';
-    const age = howOldAreYou(BIRTHDAY);
+        //task2
+        let ourPlanetName = "Earth";
+        let currentUser = "Serj";
 
-    alert(`Your birthday is ${BIRTHDAY}, and now you are ${age} years old`);
+        //task3
+        const BIRTHDAY = '04.09.2000';
+        const age = howOldAreYou(BIRTHDAY);
 
-    let setBDay = prompt('Введите дату Вашего дня рождения в формате дд.мм.гггг', BIRTHDAY);
+        alert(`Your birthday is ${BIRTHDAY}, and now you are ${age} years old`);
 
-    alert(`Сейчас Вам ${ howOldAreYou(setBDay)} полных лет`);
+        let setBDay = prompt('Введите дату Вашего дня рождения в формате дд.мм.гггг', BIRTHDAY);
 
-    function msecInYear(mSec1, mSec2) {
-        let diffMsec = Math.abs(mSec1 - mSec2);
-        let msecInYear = diffMsec / (3600 * 24 * 1000 * 365.2425);
-        return msecInYear = Math.trunc(msecInYear);
-    };
+        alert(`Сейчас Вам ${howOldAreYou(setBDay)} полных лет`);
 
-    function howOldAreYou(bd) {
-        let bdayInISO = bd[6] + bd[7] + bd[8] + bd[9] + '-' + bd[3] + bd[4] + '-' + bd[0] + bd[1];
-        let bdayInMsec = Date.parse(bdayInISO);
-        let dateNowInMsec = Date.now();
-        let fullYear = msecInYear(bdayInMsec, dateNowInMsec);
-        return fullYear;
-    };
-</script>
+        function msecInYear(mSec1, mSec2) {
+            let diffMsec = Math.abs(mSec1 - mSec2);
+            let msecInYear = diffMsec / (3600 * 24 * 1000 * 365.2425);
+            return msecInYear = Math.trunc(msecInYear);
+        };
+
+        function howOldAreYou(bd) {
+            let bdayInISO = bd[6] + bd[7] + bd[8] + bd[9] + '-' + bd[3] + bd[4] + '-' + bd[0] + bd[1];
+            let bdayInMsec = Date.parse(bdayInISO);
+            let dateNowInMsec = Date.now();
+            let fullYear = msecInYear(bdayInMsec, dateNowInMsec);
+            return fullYear;
+        };
+    </script>
+</body>
+
+</html>

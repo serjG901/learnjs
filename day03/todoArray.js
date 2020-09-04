@@ -66,7 +66,7 @@ function getIndexTodo(todoId) {
 
     //возвращаем значение indexTodo вызывающему коду
     return indexTodo;
-}
+};
 
 //добавление объекта todo в массив todoArray
 function addTodo(newTodo) {

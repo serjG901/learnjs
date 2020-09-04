@@ -27,13 +27,13 @@ function removeCompleted(arr) {
     return todoArrayNoComplete;
 };
 
-//удаление объекта todo по его id из массива todos
+//удаление объекта по его id из массива
 function removeTodo(arr, todoId) {
     let todoArrayRemove = arr.filter(e => e.id !== todoId);
     return todoArrayRemove;
 };
 
-//изменение свойства title объекта c заданным id в массиве todos
+//изменение свойства title объекта c заданным id в массиве
 function changeTodoTitle(arr, todoId, newTitle) {
     let todoArrayNewTitle = arr.map(e => {
         e = {
@@ -47,7 +47,7 @@ function changeTodoTitle(arr, todoId, newTitle) {
     return todoArrayNewTitle;
 };
 
-//изменение свойства complete объекта c заданным id в массиве todos
+//изменение свойства complete объекта c заданным id в массиве
 function changeTodoComplete(arr, todoId, isComplete) {
     let todoArrayNewComplete = arr.map(e => {
         e = {
@@ -126,7 +126,7 @@ console.log("todos without completed todo id = 3, 8");
 
 todos.forEach((e) => {
 
-    //находим индекс объекта todo по его id
+    //находим индекс объекта по его id
     let indexTodo = getIndexTodo(todos, e.id);
 
     //выводим индекс объекта в консоль

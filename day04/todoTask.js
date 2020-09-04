@@ -1,7 +1,7 @@
-//определяем пустой массив для добавления в него объектов todo
+//определяем пустой массив для добавления в него объектов
 let todos = [];
 
-//сделаем массив из 10-ти объектов todo
+//сделаем массив из 10-ти объектов
 for (let i = 0; i < 10; i++) {
     //объект todo со свойствами id, title, text, complete
     let todo = {
@@ -11,11 +11,11 @@ for (let i = 0; i < 10; i++) {
         complete: false
     };
 
-    //функция добавления в массив addTodo(newTodo) описана ниже
+    //функция добавления в массив addTodo(todos, todo) описана ниже
     todos = addTodo(todos, todo);
 };
 
-//добавление объекта todo в массив todos
+//добавление объекта в массив через concat
 function addTodo(arr, newTodo) {
     let todoArray = arr.concat(newTodo);
     return todoArray;
@@ -62,7 +62,7 @@ function changeTodoComplete(arr, todoId, isComplete) {
     return todoArrayNewComplete;
 };
 
-//нахождение в массиве todoArr индекса объекта todo по его id
+//нахождение в массиве индекса объекта по его id
 function getIndexTodo(arr, todoId) {
     let indexTodo = arr.findIndex((todo) => todo.id === todoId);
 
@@ -95,7 +95,7 @@ todos = changeTodoComplete(todos, 2, false);
 
 todos.forEach((e) => {
 
-    //выводим справочно ручные изменения для todo c id=1,4,7,10 что описаны выше
+    //выводим справочно ручные изменения для todo c id=2,3,6,8,10 что описаны выше
     switch (e.id) {
         case 2: console.log('todo with id 2 have been change COMPLETE false - true - false');
             break;
@@ -122,7 +122,7 @@ todos.forEach((e) => {
 
 todos = removeCompleted(todos);
 
-console.log("remove todo id = 3, 8");
+console.log("todos without completed todo id = 3, 8");
 
 todos.forEach((e) => {
 

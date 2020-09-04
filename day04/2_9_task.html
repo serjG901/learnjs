@@ -5,10 +5,10 @@
     <script>
         let userName = prompt("Введите свое имя:", "инкогнито");
 
-        if (userName !== null) {
-            alert(`Ваше имя: ${userName}`)
-        } else {
+        if (userName === null) {
             alert("Вы отменили ввод");
+        } else {
+            alert(`Ваше имя: ${userName}`);
         };
 
     </script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>open console</p>
+    <script>
+
+        //task1
+        if ("0") {
+            alert("Привет"); // выведет alert так как "0" - не пустая строка
+        };
+
+        //task2
+        let nameJS = prompt('Какое "официальное название" JavaScript?', '');
+
+        if (nameJS === null) {
+            alert("Вы отменили ввод");
+        } else if (nameJS === "ECMAScript") {
+            alert("Верно!");
+        } else {
+            alert("Вы не знаете? ECMAScript!");
+        };
+
+        //task3
+        let numberForCheck = prompt("Введите число для проверки его знака:", '');
+
+        if (numberForCheck === null) {
+            alert("Вы отменили ввод");
+        } else {
+            alert(checkSignOfNumber(numberForCheck));
+        };
+
+        function checkSignOfNumber(e) {
+            let number = +e;
+
+            if (isNaN(number)) {
+                throw new Error("Ошибка ввода, введите число!");
+            };
+
+            if (number > 0) {
+                return 1;
+            } else if (number < 0) {
+                return -1;
+            } else {
+                return 0;
+            };
+        };
+
+        //task4
+        console.log(`1 + 2 = 4 ? - ${isSumEquallyFour(1, 2)}`);
+        console.log(`3 + 5 = 4 ? - ${isSumEquallyFour(3, 5)}`);
+        console.log(`2 + 2 = 4 ? - ${isSumEquallyFour(2, 2)}`);
+
+        function isSumEquallyFour(a, b) {
+            let result;
+
+            if ((a + b) === 4) {
+                return result = "В самый раз!";
+            };
+
+            return result = (a + b < 4) ? "Мало" : "Много";
+        };
+
+        //task5
+        let login = prompt("Введите свой логин", "");
+
+        if (login === null) {
+            alert("Вы отменили ввод");
+        } else {
+            alert(checkLogin(login));
+        };
+
+        function checkLogin(e) {
+            let message;
+
+            return message = (e === "user")
+                ? "Hello user!"
+                : (e === "CEO")
+                    ? "Good day CEO!"
+                    : (e === "")
+                        ? "no login"
+                        : "I dont know You!";
+        }
+    </script>
+</body>
+
+</html>

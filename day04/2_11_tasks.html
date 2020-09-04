@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>open console</p>
+    <script>
+        //task1
+        console.log("task1");
+        console.log(`( null || 2 || undefined ) = '2' : ${(null || 2 || undefined)}`);
+        //task2
+        console.log("task2");
+        console.log(`( console.log(1) || 2 || console.log(3) ) = '1' and '2' : ${(console.log(1) || 2 || console.log(3))}`);
+        //task3
+        console.log("task3");
+        console.log(`( 1 && null && 2 ) = 'null' : ${(1 && null && 2)}`);
+        //task4
+        console.log("task4");
+        console.log(`( console.log(1) && console.log(2) ) = '1' and 'undefined' : ${(console.log(1) && console.log(2))}`);
+        //task5
+        console.log("task5");
+        console.log(`( null || 2 && 3 || 4 ) = '3' : ${(null || 2 && 3 || 4)}`);
+        //task6
+        console.log("task6");
+        function chekNumFrom14to90(e) {
+            let isNotInclude = (e < 14) || (e > 90);
+            let isNotInclude2 = !(e >= 14) && (e <= 90);
+
+            if (isNotInclude) {
+                return `number ${e} is not in the range from 14 to 90`;
+            } else {
+                return `number ${e} is in the range from 14 to 90`;
+            };
+
+        };
+
+        console.log(chekNumFrom14to90(5));
+        console.log(chekNumFrom14to90(14));
+        console.log(chekNumFrom14to90(54));
+        console.log(chekNumFrom14to90(90));
+        console.log(chekNumFrom14to90(100));
+
+        //task7
+        console.log("task7");
+        if (-1 || 0) { console.log(`( -1 || 0 ) = '-1' : first ${(-1 || 0)}`); }; //выведет
+        if (-1 && 0) { console.log(`( -1 && 0 ) = '0' : second ${(-1 && 0)}`); }; //не выведет
+        if (null || -1 && 1) { console.log(`(  null || -1 && 1 ) = '1' : third ${(null || -1 && 1)}`); }; //выведет
+
+        //task8
+        let trueLogin = "admin";
+        let truePass = "pass";
+
+        let login = prompt(`(if operator) Введите логин (${trueLogin}):`, "");
+
+        if (login === null) {
+            alert("Вы отменили ввод");
+        } else if (login !== trueLogin) {
+            alert("Я вас не знаю");
+        } else {
+            let pass = prompt(`Привет ${trueLogin}, введите пароль (${truePass}):`, "");
+            if (pass === null) {
+                alert("Вы отменили ввод");
+            } else if (pass !== truePass) {
+                alert("Не верный пароль!");
+            } else {
+                alert("Рад тебя видеть!");
+            };
+        };
+
+        //task8 with ternar operator ? : ; написал для разнообразия, вероятно лучше так не делать в продукте
+        let trueLoginT = "adminT";
+        let truePassT = "passT";
+
+        let loginT = prompt(`(ternar operator) Введите логин (${trueLoginT}):`, "");
+        let passT;
+
+        (loginT === null)
+            ? alert("Вы отменили ввод")
+            : (loginT === trueLoginT)
+                ? (passT = prompt(`Привет ${trueLoginT}, введите пароль (${truePassT}):`, "")
+                    , (passT === null)
+                        ? alert("Вы отменили ввод")
+                        : (passT === truePassT)
+                            ? alert("Рад тебя видеть!")
+                            : alert("Не верный пароль!"))
+                : alert("Я вас не знаю!");
+
+
+    </script>
+</body>
+
+</html>

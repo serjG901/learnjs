@@ -41,49 +41,21 @@
   </style>
 
   <script>
-    //оперделяем в константу кнопку с id='toggle' для обращения к ней
+    const pushOn = "Включить";
+    const pushOff = "Выключить";
     const bulbToggle = document.getElementById("toggle");
-
-    //оперделяем в константу лампочку с id='bulb' для обращения к ней
     const bulb = document.getElementById("bulb");
 
-    /*
-    добавляем к bulbToggle прослушиватель ( .addEventListener ) события click (нажатие и отпускание).
-    Если кликнем на кнопку - событие сработает и выполнит код стрелочной функции
-    () => {код для выполнения}
-    */
     bulbToggle.addEventListener("click", () => {
-      //оперделяем в переменную текст что записан в кнопке bulbToggle
       let status = bulbToggle.textContent;
-
-      /*
-      далее для присвоения значений тексту кнопки ( внутренний текст innerText )
-      и виду лампочки ( цветное/серое filter:grayscale(%) )
-      я использовал тернарный оператор вида: 
-      переменная = ( условие ) ? ( значение если  true ) : ( значение если условие false );
-      */
-      bulb.style.filter = (status === "Включить") ? "grayscale(0%)" : "grayscale(100%)";
-      bulbToggle.innerText = (status === "Включить") ? "Выключить" : "Включить";
+      bulb.style.filter = (status === pushOn) ? "grayscale(0%)" : "grayscale(100%)";
+      bulbToggle.innerText = (status === pushOn) ? pushOff : pushOn;
     });
 
-    //оперделяем в константу ползунок range с id='bulbRange' для обращения к нему
     const bulbRange = document.getElementById("bulbRange");
-
-    //оперделяем в константу лампочку с id='bulbDimmable' для обращения к ней
     const bulbDimmable = document.getElementById("bulbDimmable");
 
-    /*
-    добавляем к bulbRange прослушиватель события change 
-    (при изменении значения ползунка будет вызываться код стрелочной функции)
-    */
     bulbRange.addEventListener("change", () => {
-      /*
-      .style - обращение к стилям лампочки
-      `grayscale(${100-bulbRange.value}%)` - выражение с обратными ковычками `(там где кнопка с тильдой ~ и ё)
-      и в него можно вставлять вычисляемые значения при помощи ${}
-      bulbRange.value - значение ползунка
-      100-bulbRange.value - значение для grayscale, так как 100% это серый, а 0% цветной
-      */
       bulbDimmable.style.filter = `grayscale(${100 - bulbRange.value}%)`;
     });
   </script>

@@ -27,26 +27,26 @@ function removeTodo(arr, todoId) {
 
 function changeTodoTitle(arr, todoId, newTitle) {
     let newTodos = arr.map(e => {
-        e = {
+       /* e = {
             id: e.id,
             title: e.id === todoId ? newTitle : e.title,
             text: e.text,
             complete: e.complete
-        };
-        return e;
+        };*/
+        return e = e.id === todoId ? Object.assign(e, {title: newTitle }) : e;
     });
     return newTodos;
 };
 
 function changeTodoComplete(arr, todoId, isComplete) {
     let newTodos = arr.map(e => {
-        e = {
+       /* e = {
             id: e.id,
             title: e.title,
             text: e.text,
             complete: e.id === todoId ? isComplete : e.complete
-        };
-        return e;
+        };*/
+        return e = e.id === todoId ? Object.assign(e, {complete: isComplete }) : e;
     });
     return newTodos;
 };
@@ -98,3 +98,7 @@ todos.forEach((e) => {
     console.log(JSON.stringify(e, null, 4));
 });
 
+//проверил assign
+let nt = 'hello';
+let o = Object.assign(todos[0], {title: nt });
+console.log(JSON.stringify(o, null, 4));

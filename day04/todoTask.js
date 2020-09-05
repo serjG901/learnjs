@@ -87,9 +87,7 @@ todos.forEach((e) => {
         case 10: console.log('todo with id 10 have been add handly');
             break;
     };
-    let indexTodo = getIndexTodo(todos, e.id);
-    console.log(indexTodo);
-    console.log(JSON.stringify(todos[indexTodo], null, 4));
+    console.log(JSON.stringify(e, null, 4));
 });
 
 todos = removeCompleted(todos);
@@ -97,8 +95,6 @@ todos = removeCompleted(todos);
 console.log("todos without completed todo id = 3, 8");
 
 todos.forEach((e) => {
-    let indexTodo = getIndexTodo(todos, e.id);
-    console.log(indexTodo);
-    console.log(JSON.stringify(todos[indexTodo], null, 4));
+    console.log(JSON.stringify(e, null, 4));
 });
 

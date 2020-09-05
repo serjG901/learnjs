@@ -75,13 +75,11 @@ todos = changeTodoComplete(todos, 8, true);
 todos = changeTodoComplete(todos, 2, false);
 
 todos.forEach((e) => {
-    //выводим справочно ручные изменения для todo c id=2,3,6,8,10 что описаны выше
     switch (e.id) {
         case 2: console.log('todo with id 2 have been change COMPLETE false - true - false');
             break;
         case 3: console.log('todo with id 3 have been change COMPLETE to true');
             break;
-        //case 6 потому что объект с id=5 удален, поэтому выводим перед todo.id=6
         case 6: console.log('todo with id 5 have been delete');
             break;
         case 8: console.log('todo with id 8 have been change TITLE and COMPLETE to true');

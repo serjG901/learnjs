@@ -11,22 +11,22 @@ for (let i = 0; i < 10; i++) {
 };
 
 function addTodo(arr, newTodo) {
-    let todoArray = arr.concat(newTodo);
-    return todoArray;
+    let newTodos = arr.concat(newTodo);
+    return newTodos;
 };
 
 function removeCompleted(arr) {
-    let todoArrayNoComplete = arr.filter(e => e.complete === false);
-    return todoArrayNoComplete;
+    let newTodos = arr.filter(e => e.complete === false);
+    return newTodos;
 };
 
 function removeTodo(arr, todoId) {
-    let todoArrayRemove = arr.filter(e => e.id !== todoId);
-    return todoArrayRemove;
+    let newTodos = arr.filter(e => e.id !== todoId);
+    return newTodos;
 };
 
 function changeTodoTitle(arr, todoId, newTitle) {
-    let todoArrayNewTitle = arr.map(e => {
+    let newTodos = arr.map(e => {
         e = {
             id: e.id,
             title: e.id === todoId ? newTitle : e.title,
@@ -35,11 +35,11 @@ function changeTodoTitle(arr, todoId, newTitle) {
         };
         return e;
     });
-    return todoArrayNewTitle;
+    return newTodos;
 };
 
 function changeTodoComplete(arr, todoId, isComplete) {
-    let todoArrayNewComplete = arr.map(e => {
+    let newTodos = arr.map(e => {
         e = {
             id: e.id,
             title: e.title,
@@ -48,7 +48,7 @@ function changeTodoComplete(arr, todoId, isComplete) {
         };
         return e;
     });
-    return todoArrayNewComplete;
+    return newTodos;
 };
 
 function getIndexTodo(arr, todoId) {
@@ -59,14 +59,14 @@ function getIndexTodo(arr, todoId) {
     return indexTodo;
 };
 
-let todoNew = {
+let todoHand = {
     id: 10,
     title: `HANDtitle10`,
     text: `HANDtext10`,
     complete: false
 };
 
-todos = addTodo(todos, todoNew);
+todos = addTodo(todos, todoHand);
 todos = removeTodo(todos, 5);
 todos = changeTodoTitle(todos, 8, "newTitle for id=8");
 todos = changeTodoComplete(todos, 3, true);

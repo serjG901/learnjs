@@ -1,4 +1,4 @@
-let todos = [];
+﻿let todos = [];
 
 for (let i = 0; i < 10; i++) {
     let todo = {
@@ -10,45 +10,45 @@ for (let i = 0; i < 10; i++) {
     todos = addTodo(todos, todo);
 };
 
-function addTodo(arr, newTodo) {
-    let newTodos = arr.concat(newTodo);
-    return newTodos;
+function addTodo(todoArray, newTodo) {
+    let newTodoArray = todoArray.concat(newTodo);
+    return newTodoArray;
 };
 
-function removeCompleted(arr) {
-    let newTodos = arr.filter(e => e.complete === false);
-    return newTodos;
+function removeCompleted(todoArray) {
+    let newTodoArray = todoArray.filter(e => e.complete === false);
+    return newTodoArray;
 };
 
-function removeTodo(arr, todoId) {
-    let newTodos = arr.filter(e => e.id !== todoId);
-    return newTodos;
+function removeTodo(todoArray, todoId) {
+    let newTodoArray = todoArray.filter(e => e.id !== todoId);
+    return newTodoArray;
 };
 
-function changeTodoTitle(arr, todoId, newTitle) {
-    let newTodos = arr.map(e => {
-       /* e = {
-            id: e.id,
-            title: e.id === todoId ? newTitle : e.title,
-            text: e.text,
-            complete: e.complete
-        };*/
-        return e = e.id === todoId ? Object.assign(e, {title: newTitle }) : e;
+function changeTodoTitle(todoArray, todoId, newTitle) {
+    let newTodoArray = todoArray.map(e => {
+        /* e = {
+             id: e.id,
+             title: e.id === todoId ? newTitle : e.title,
+             text: e.text,
+             complete: e.complete
+         };*/
+        return e = e.id === todoId ? Object.assign(e, { title: newTitle }) : e;
     });
-    return newTodos;
+    return newTodoArray;
 };
 
-function changeTodoComplete(arr, todoId, isComplete) {
-    let newTodos = arr.map(e => {
-       /* e = {
-            id: e.id,
-            title: e.title,
-            text: e.text,
-            complete: e.id === todoId ? isComplete : e.complete
-        };*/
-        return e = e.id === todoId ? Object.assign(e, {complete: isComplete }) : e;
+function changeTodoComplete(todoArray, todoId, isComplete) {
+    let newTodoArray = todoArray.map(e => {
+        /* e = {
+             id: e.id,
+             title: e.title,
+             text: e.text,
+             complete: e.id === todoId ? isComplete : e.complete
+         };*/
+        return e = e.id === todoId ? Object.assign(e, { complete: isComplete }) : e;
     });
-    return newTodos;
+    return newTodoArray;
 };
 
 function getIndexTodo(arr, todoId) {
@@ -100,5 +100,28 @@ todos.forEach((e) => {
 
 //проверил assign
 let nt = 'hello';
-let o = Object.assign(todos[0], {title: nt });
+let o = Object.assign(todos[0], { title: nt });
 console.log(JSON.stringify(o, null, 4));
+
+//------------------------------------------------
+function editedTodo(todoArray, ...todoEdited) {
+    let todo = { ...todoEdited };
+    let newTodoArray = todoArray.map(e => {
+        return e = e.id === todo[0].id ? Object.assign(e, ...todoEdited) : e;
+    });
+    return newTodoArray;
+};
+
+let todoForEdit = {
+    id: 1,
+    title: "EDITED!",
+    text: "some text for edited todo",
+    complete: true,
+    edited: true
+};
+
+let editedArray = editedTodo(todos, todoForEdit);
+console.log(JSON.stringify(editedArray[1], null, 4));
+console.log("Почему todos в editedTodo изменяется map-ом?");
+console.log(JSON.stringify(todos[1], null, 4));
+//----------------------------------------------------

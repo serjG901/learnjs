@@ -135,7 +135,8 @@ function changeTodoComplete(todoArray, todoId, isComplete) {
             complete: e.id === todoId ? isComplete : e.complete
         };
         return e;
-        /*return e = e.id === todoId ? Object.assign(e, { complete: isComplete }) : e;*/
+        /*let f = Object.assign({}, e);
+        return f = f.id === todoId ? Object.assign(f, { complete: isComplete }) : f;*/
     });
     return newTodoArray;
 };
@@ -157,7 +158,7 @@ function editedTodo(todoArray, ...todoEdited) {
         });
         return newTodoArray;
     } else {
-        throw new Error("Entering edited todo not correct or null");
+        throw new Error("Entering edited object not correct or null");
     };
 
 };
@@ -176,7 +177,7 @@ function editedTodo2(todoArray, ...todoEdited) {
         });
         return newTodoArray;
     } else {
-        throw new Error("Entering edited todo not correct or null");
+        throw new Error("Entering edited object not correct or null");
     };
 
 };

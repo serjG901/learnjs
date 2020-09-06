@@ -23,7 +23,7 @@
         console.log("task6");
         function chekNumFrom14to90(e) {
             let isNotInclude = (e < 14) || (e > 90);
-            let isNotInclude2 = !(e >= 14) && (e <= 90);
+            let isNotInclude2 = !((e >= 14) && (e <= 90));
 
             if (isNotInclude) {
                 return `number ${e} is not in the range from 14 to 90`;

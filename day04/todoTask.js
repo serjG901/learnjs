@@ -61,7 +61,8 @@ let todoForEdit = {
     id: 1,
     title: "EDITED title and complete for todo",
     text: "some text for todo in NEW TODOS ARRAY",
-    complete: true
+    complete: true,
+    edited: true
 };
 
 let editedArray = editedTodo(todos, todoForEdit);
@@ -111,11 +112,10 @@ function getIndexTodo(todoArray, todoId) {
     return indexTodo;
 };
 
-function editedTodo(todoArray, ...todoEdited) {
-    let todo = { ...todoEdited }[0];
-    if (todo) {
+function editedTodo(todoArray, todoEdited) {
+    if (todoEdited) {
         let newTodoArray = todoArray.map(todoItem => {
-            return todoItem = todoItem.id === todo.id ? { ...todoItem, ...todo } : todoItem;
+            return todoItem = todoItem.id === todoEdited.id ? { ...todoItem, ...todoEdited } : todoItem;
         });
         return newTodoArray;
     } else {

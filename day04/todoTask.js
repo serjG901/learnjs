@@ -1,12 +1,9 @@
 ﻿let todos = [];
 
 for (let i = 0; i < 10; i++) {
-    let todo = {
-        id: i,
-        title: `titleTodos${i}`,
-        text: `textTodos${i}`,
-        complete: false
-    };
+    let title = `titleTodos${i}`;
+    let text = `textTodos${i}`;
+    let todo = makeTodo(i, title, text, false);
     todos = addTodo(todos, todo);
 };
 
@@ -57,13 +54,11 @@ todos.forEach((todoItem) => {
     console.log(JSON.stringify(todoItem, null, 4));
 });
 
-let todoForEdit = {
-    id: 1,
-    title: "EDITED title and complete for todo",
-    text: "some text for todo in NEW TODOS ARRAY",
-    complete: true,
-    edited: true
-};
+const someTitle = "MAKE TODO EDITED title and complete for todo";
+const someText = "some text for todo in NEW TODOS ARRAY";
+const edited = true;
+
+let todoForEdit = makeTodo(1, someTitle, someText, true);
 
 let editedArray = editedTodo(todos, todoForEdit);
 console.log("new array editedTodo whith assign");
@@ -74,6 +69,14 @@ console.log(JSON.stringify(todos[1], null, 4));
 console.log(JSON.stringify(todos[0], null, 4));
 
 //------------------functions---------------------------
+function makeTodo(id, title, text, complete, ...args) {
+    return {
+        id,
+        title,
+        text,
+        complete,
+    };
+};
 
 function addTodo(todoArray, newTodo) {
     let newTodoArray = todoArray.concat(newTodo);

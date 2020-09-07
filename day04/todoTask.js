@@ -41,18 +41,17 @@ todos.forEach((todoItem) => {
     console.log(JSON.stringify(todoItem, null, 4));
 });
 
+//проверяем удаление
 todos = removeCompleted(todos);
-
 console.log("todos without completed todo id = 3, 7, 8, 9");
-
 todos.forEach((todoItem) => {
     console.log(JSON.stringify(todoItem, null, 4));
 });
 
+//проверяем редактирование
 const someTitle = "MAKE TODO EDITED title and complete for todo";
 const someText = "some text for todo in NEW TODOS ARRAY";
 const edited = true;
-
 let todoForEdit = makeTodo(1, someTitle, someText, true);
 
 let editedArray = editedTodo(todos, todoForEdit);

@@ -9,12 +9,7 @@ for (let i = 0; i < 10; i++) {
 
 //проверки --------------------------------------------
 
-let todoHand = {
-    id: 10,
-    title: `HANDtitle10`,
-    text: `HANDtext10`,
-    complete: false
-};
+let todoHand = makeTodo(10, `HANDtitle10 make`, `HANDtext10`, false);
 
 todos = addTodo(todos, todoHand);
 todos = removeTodo(todos, 5);

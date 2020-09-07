@@ -1,7 +1,6 @@
 ﻿// ------------------------global varibals--------------------
 let globalID = 0;
-
-//-------------------------functions---------------------------
+// -------------------------functions---------------------------
 const getId = () => globalID++;
 
 const makeTodo = (title, text, complete) => {
@@ -21,7 +20,7 @@ const makeTodos = (n) => {
         let complete = false;
         let todo = makeTodo(title, text, complete);
         todos = addTodo(todos, todo);
-    };
+    }
     return todos;
 };
 
@@ -44,10 +43,8 @@ const editedTodo = (todoArray, todoEdited) => {
         return todoArray.map(todoItem => (todoItem.id === todoEdited.id) ? { ...todoItem, ...todoEdited } : todoItem);
     } else {
         throw new Error("Entering edited object not correct or null");
-    };
+    }
 };
-
-const getIndexTodo = (todoArray, todoId) => todoArray.findIndex((todoItem) => todoItem.id === todoId);
 
 //----------------------------проверки--------------------------------------------
 let todos = makeTodos(5);

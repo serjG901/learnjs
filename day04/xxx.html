@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <p>Сделать так, чтобы когда лампочка выключена отображалась картинка с выключенной лампочкой<br> И когда включена - соответственно картинка включенной лампочки.<br> Если у вас что-то не получается - не беспокойтесь.<br> *Сделать диммер с помощью элемента
+        input type="range".<br> Лампочка - либо opacity у картинки, либо svg, в котором меняется цвет основной части лампочки.
+    </p>
+    <div id="light"></div>
+    <input type="range" name="voltage" id="power-light" min="0" max="1" step="0.05">
+    <button id="toggle">Включить</button>
+    <button id="toggleOff">Выключить</button>
+    <img id="bulb-on" src="./bulb-on.png" hidden>
+    <img id="bulb-off" src="./bulb-off.png" hidden>
+    <p id="presence"></p>
+    <script>
+        let bulb = '';
+        let bulbOff = '';
+        const bulbToggle = document.getElementById('toggle');
+        bulbToggle.addEventListener("mouseout", () => {
+            const bulb = document.getElementById('bulb-on');
+            if (bulb.hidden) {
+                light.innerHTML = '<img src="./bulb-on.png">';
+                presence.innerText = "Свет eсть";
+            } else {
+                light.innerHTML = '<img src="./bulb-off.png">';
+                presence.innerText = "Света нет";
+            }
+        });
+        const bulbToggleOff = document.getElementById('toggleOff');
+        bulbToggleOff.addEventListener("mouseout", () => {
+            const bulbOff = document.getElementById('bulb-off');
+            if (bulbOff.hidden) {
+                light.innerHTML = '<img src="./bulb-off.png">';
+                presence.innerText = "Света нет";
+            } else {
+                light.innerHTML = '<img src="./bulb-on.png">';
+                presence.innerText = "Свет eсть";
+            }
+        });
+        if (bulb.hidden == false && bulbOff.hidden == true) {
+            light.innerHTML = '<img src="./bulb-on.png">';
+        } else if (bulb.hidden == true && bulbOff.hidden == false) {
+            light.innerHTML = '<img src="./bulb-off.png">';
+        } else {
+            light.innerHTML = '';
+        }
+      </script>
+</body>
+</html>

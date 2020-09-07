@@ -22,10 +22,12 @@ let todoHand = {
 todos = addTodo(todos, todoHand);
 todos = removeTodo(todos, 5);
 todos = changeTodoTitle(todos, 8, "newTitle for id=8");
-todos = changeTodoComplete(todos, 3, true);
 todos = changeTodoComplete(todos, 2, true);
-todos = changeTodoComplete(todos, 8, true);
 todos = changeTodoComplete(todos, 2, false);
+todos = changeTodoComplete(todos, 3, true);
+todos = changeTodoComplete(todos, 7, true);
+todos = changeTodoComplete(todos, 8, true);
+todos = changeTodoComplete(todos, 9, true);
 
 todos.forEach((todoItem) => {
     switch (todoItem.id) {
@@ -35,7 +37,11 @@ todos.forEach((todoItem) => {
             break;
         case 6: console.log('todo with id 5 have been delete');
             break;
+        case 7: console.assert(todoItem.complete === true);
+            break;
         case 8: console.assert(((todoItem.title === "newTitle for id=8") && (todoItem.complete === true)));;
+            break;
+        case 9: console.assert(todoItem.complete === true);
             break;
         case 10: console.log('todo with id 10 have been add handly');
             break;
@@ -45,7 +51,7 @@ todos.forEach((todoItem) => {
 
 todos = removeCompleted(todos);
 
-console.log("todos without completed todo id = 3, 8");
+console.log("todos without completed todo id = 3, 7, 8, 9");
 
 todos.forEach((todoItem) => {
     console.log(JSON.stringify(todoItem, null, 4));
@@ -53,7 +59,7 @@ todos.forEach((todoItem) => {
 
 let todoForEdit = {
     id: 1,
-    title: "EDITED title and complete whith assign for todo",
+    title: "EDITED title and complete for todo",
     text: "some text for todo in NEW TODOS ARRAY",
     complete: true
 };
@@ -74,12 +80,12 @@ function addTodo(todoArray, newTodo) {
 };
 
 function removeCompleted(todoArray) {
-    let newTodoArray = todoArray.filter(e => e.complete === false);
+    let newTodoArray = todoArray.filter(todoItem => todoItem.complete === false);
     return newTodoArray;
 };
 
 function removeTodo(todoArray, todoId) {
-    let newTodoArray = todoArray.filter(e => e.id !== todoId);
+    let newTodoArray = todoArray.filter(todoItem => todoItem.id !== todoId);
     return newTodoArray;
 };
 
@@ -98,7 +104,7 @@ function changeTodoComplete(todoArray, todoId, isComplete) {
 };
 
 function getIndexTodo(todoArray, todoId) {
-    let indexTodo = todoArray.findIndex((todo) => todo.id === todoId);
+    let indexTodo = todoArray.findIndex((todoItem) => todoItem.id === todoId);
     if (indexTodo === -1) {
         throw new Error("Id not found!");
     };

@@ -17,6 +17,7 @@
             for (let key in obj) return false;
             return true; 
         }
+
         console.assert(isEmpty({}) === true);
         console.assert(isEmpty({id: 1}) === false);
         console.assert(isEmpty({id: 1, name: "name"}) === false);
@@ -33,6 +34,7 @@
             Ann: 160,
             Pete: 130,
         }
+
         const summSalaries = salaries => {
             let sum = 0;
             for (let key in salaries) {
@@ -40,6 +42,7 @@
             }
             return sum;
         }
+
         console.assert(summSalaries(salaries) === 390);
         console.assert(summSalaries({}) === 0);
 
@@ -49,12 +52,14 @@
                 if ( (typeof obj[key]) === "number" ) obj[key] *= n;
             }
         }
+
         const menu = {
             w: 200,
             h: 300,
             title: "My menu",
             site: true,
         }
+        
         console.log(JSON.stringify(menu));
         const n = 2.5;
         multyNum(menu, n);

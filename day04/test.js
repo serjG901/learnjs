@@ -45,7 +45,7 @@ describe("removeTodo = (todoArray, todoId) удаляет объект из ма
 
 describe("changeTodoTitle = (todoArray, todoId, title) изменяет значение title в объекте", () => {
 
-  it(`changeTodoTitle( [ { id:1, title: "oldTitle" } ], 1, "newTitle" )[ 0 ].title == "newTitle"`, () => {
+  it(`проверим изменение значения свойства title`, () => {
     assert.equal(changeTodoTitle([{ id: 1, title: "oldTitle" }], 1, "newTitle")[0].title, "newTitle");
   })
   // ... другие тесты. Можно писать и describe, и it блоки.
@@ -53,27 +53,27 @@ describe("changeTodoTitle = (todoArray, todoId, title) изменяет знач
 
 describe("changeTodoComplete = (todoArray, todoId, complete) изменяет значение complete в объекте", () => {
 
-  it(`changeTodoComplete( [ { id:1, complete: false } ], 1, true )[ 0 ].complete == true`, () => {
+  it(`проверим изменение свойства complete c false на true`, () => {
     assert.equal(changeTodoComplete([{ id: 1, complete: false }], 1, true)[0].complete, true);
   })
 
-  it(`changeTodoComplete( [ { id:1, complete: true } ], 1, false )[ 0 ].complete == false`, () => {
+  it(`проверим изменение свойства complete c true на false`, () => {
     assert.equal(changeTodoComplete([{ id: 1, complete: true }], 1, false)[0].complete, false);
   })
   // ... другие тесты. Можно писать и describe, и it блоки.
 });
 
-describe("editedTodo = (todoArray, todoEdited) изменяет объект в массиве", () => {
+describe("editedTodo = (todoArray, todoEdited) изменяет объект в массиве по его todoEdited.id", () => {
 
-  it(`editedTodo( [ { id:1, property1: "oldValue1", property2: "oldValue2" } ], { id:1, property1: "newValue1", property2: "newValue2" })[ 0 ].property1 == "newValue1"`, () => {
+  it(`изменим значение двух свойств и проверим изменение значения 1-го свойства`, () => {
     assert.equal(editedTodo([{ id: 1, property1: "oldValue1", property2: "oldValue2" }], { id: 1, property1: "newValue1", property2: "newValue2" })[0].property1, "newValue1");
   })
 
-  it(`editedTodo( [ { id:1, property1: "oldValue1", property2: "oldValue2" } ], { id:1, property1: "newValue1", property2: "newValue2" })[ 0 ].property2 == "newValue2"`, () => {
+  it(`изменим значение двух свойств и проверим изменение значения 2-го свойства`, () => {
     assert.equal(editedTodo([{ id: 1, property1: "oldValue1", property2: "oldValue2" }], { id: 1, property1: "newValue1", property2: "newValue2" })[0].property2, "newValue2");
   })
 
-  it(`editedTodo( [ { id:1, property1: "oldValue1", property2: "oldValue2" } ], { id:1, property1: "newValue1" })[ 0 ].property2 == "oldValue2"`, () => {
+  it(`изменим значение одного свойства и проверим чтобы не изменилось значение второго свойства`, () => {
     assert.equal(editedTodo([{ id: 1, property1: "oldValue1", property2: "oldValue2" }], { id: 1, property1: "newValue1" })[0].property2, "oldValue2");
   })
   // ... другие тесты. Можно писать и describe, и it блоки.

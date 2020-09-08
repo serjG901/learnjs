@@ -48,7 +48,6 @@
             for (let key in obj) {
                 if ( (typeof obj[key]) === "number" ) obj[key] *= 2;
             }
-            return obj;
         }
         const menu = {
             w: 200,
@@ -56,7 +55,8 @@
             title: "My menu",
             site: true,
         }
-        console.log(JSON.stringify(multyNum(menu)));
+        multyNum(menu);
+        console.log(JSON.stringify(menu));
     </script>
 </body>
 

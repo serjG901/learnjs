@@ -1,71 +1,69 @@
 ﻿<!DOCTYPE html>
 <html>
+    <body>
+        <script>
+            // task 1
+            const user = {};
+            user.name = "John";
+            user.surname = "Smith";
+            user.name = "Pete";
+            console.assert(user.name === "Pete");
+            delete user.name;
+            console.assert("name" in user === false);
 
-<body>
-    <script>
-        // task 1
-        const user = {};
-        user.name = "John";
-        user.surname = "Smith";
-        user.name = "Pete";
-        console.assert(user.name === "Pete");
-        delete user.name;
-        console.assert(("name" in user) === false);
+            // task 2
+            const isEmpty = (obj) => {
+                for (let key in obj) return false;
+                return true;
+            };
 
-        // task 2
-        const isEmpty = obj => {
-            for (let key in obj) return false;
-            return true; 
-        }
+            console.assert(isEmpty({}) === true);
+            console.assert(isEmpty({ id: 1 }) === false);
+            console.assert(isEmpty({ id: 1, name: "name" }) === false);
 
-        console.assert(isEmpty({}) === true);
-        console.assert(isEmpty({id: 1}) === false);
-        console.assert(isEmpty({id: 1, name: "name"}) === false);
+            // task 3
+            //const user = {}; ok
+            //user.name = "Peter"; ok
+            //user.name = "John"; ok
+            //user = {}; error!
 
-        // task 3
-        //const user = {}; ok
-        //user.name = "Peter"; ok
-        //user.name = "John"; ok
-        //user = {}; error!
+            // task 4
+            const salaries = {
+                John: 100,
+                Ann: 160,
+                Pete: 130,
+            };
 
-        // task 4
-        const salaries = {
-            John: 100,
-            Ann: 160,
-            Pete: 130,
-        }
+            const summSalaries = (salaries) => {
+                let sum = 0;
+                for (let key in salaries) {
+                    sum += salaries[key];
+                }
+                return sum;
+            };
 
-        const summSalaries = salaries => {
-            let sum = 0;
-            for (let key in salaries) {
-                sum += salaries[key];
-            }
-            return sum;
-        }
+            console.assert(summSalaries(salaries) === 390);
+            console.assert(summSalaries({}) === 0);
 
-        console.assert(summSalaries(salaries) === 390);
-        console.assert(summSalaries({}) === 0);
+            // task 5
+            const multyNum = (obj, n) => {
+                for (let key in obj) {
+                    if (typeof obj[key] === "number") obj[key] *= n;
+                }
+            };
 
-        // task 5
-        const multyNum = (obj, n) => {
-            for (let key in obj) {
-                if (typeof obj[key] === "number") obj[key] *= n;
-            }
-        }
+            const menu = {
+                w: 200,
+                h: 300,
+                title: "My menu",
+                site: true,
+            };
 
-        const menu = {
-            w: 200,
-            h: 300,
-            title: "My menu",
-            site: true,
-        }
-
-        console.log(JSON.stringify(menu));
-        const n = 2.5;
-        multyNum(menu, n);
-        console.log(`*${n}`);
-        console.log(JSON.stringify(menu));
-    </script>
-</body>
-
+            console.log(JSON.stringify(menu));
+            const n = 2.5;
+            multyNum(menu, n);
+            console.log(`*${n}`);
+            console.log(JSON.stringify(menu));
+        </script>
+    </body>
 </html>

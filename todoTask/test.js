@@ -15,7 +15,7 @@
     });
 });
 
-describe("addTodo = (todos, newTodo) добавляет объект в массив", () => {
+describe("addTodo(todos, newTodo) добавляет объект в массив", () => {
     describe("проверим добавление объекта в пустой массив", () => {
         it(`addTodo( [], {} ).length == 1`, () =>
             assert.equal(addTodo([], {}).length, 1));
@@ -35,14 +35,14 @@ describe("addTodo = (todos, newTodo) добавляет объект в масс
     });
 });
 
-describe("removeTodo = (todos, todoId) удаляет объект из массива", () => {
+describe("removeTodo(todos, todoId) удаляет объект из массива", () => {
     describe("проверим удаление объекта с id = 1 из массива [ { id: 1 } ]", () => {
         it(`removeTodo( [ { id: 1 } ], 1 ).lenght == 0`, () =>
             assert.equal(removeTodo([{ id: 1 }], 1).length, 0));
     });
 });
 
-describe("removeCompleted = (todos) возвращает массив с невыполненными todo (todo.complete = false)", () => {
+describe("removeCompleted(todos) возвращает массив с невыполненными todo (todo.complete = false)", () => {
     it(`в массиве 1 объект с comlete: true, проверим что останется 0 элементов после функции`, () => {
         assert.equal(removeCompleted([{ complete: true }]).length, 0);
     });
@@ -51,7 +51,7 @@ describe("removeCompleted = (todos) возвращает массив с нев�
     });
 });
 
-describe("changeTodoTitle = (todos, todoId, title) изменяет значение title в объекте", () => {
+describe("changeTodoTitle(todos, todoId, title) изменяет значение title в объекте", () => {
     it(`проверим изменение значения свойства title`, () => {
         assert.equal(
             changeTodoTitle([{ id: 1, title: "oldTitle" }], 1, "newTitle")[0]
@@ -61,7 +61,7 @@ describe("changeTodoTitle = (todos, todoId, title) изменяет значен
     });
 });
 
-describe("changeTodoComplete = (todos, todoId, complete) изменяет значение complete в объекте", () => {
+describe("changeTodoComplete(todos, todoId, complete) изменяет значение complete в объекте", () => {
     it(`проверим изменение свойства complete c false на true`, () => {
         assert.equal(
             changeTodoComplete([{ id: 1, complete: false }], 1, true)[0]
@@ -79,7 +79,7 @@ describe("changeTodoComplete = (todos, todoId, complete) изменяет зна
     });
 });
 
-describe("editedTodo = (todos, todoEdited) изменяет объект в массиве по его todoEdited.id", () => {
+describe("editedTodo(todos, todoEdited) изменяет объект в массиве по его todoEdited.id", () => {
     it(`изменим значение двух свойств и проверим изменение значения 1-го свойства`, () => {
         assert.equal(
             editedTodo(
@@ -111,7 +111,7 @@ describe("editedTodo = (todos, todoEdited) изменяет объект в ма
     });
 });
 //-----async tests
-describe("setState = (todos = []) устанавливает в localStorage.state = { todos, loading: true, error: new Error}", () => {
+describe("setState(todos = [], loading = true, error = new Error()) устанавливает в localStorage.state = { todos, loading, error,}", () => {
     it(`проверим что state создается в localStorage при todos = []`, () => {
         setState().then(
             assert.equal(
@@ -125,27 +125,77 @@ describe("setState = (todos = []) устанавливает в localStorage.sta
         );
     });
 
-    it(`проверим что state.todos.lenght = 3 в localStorage при todos = [{},{},{}]`, () => {
+    it(`проверим что state.todos.lenght == 3 в localStorage при todos = [{},{},{}]`, () => {
         setState([{}, {}, {}]).then(
             assert.equal(JSON.parse(localStorage.state).todos.length, 3)
         );
     });
 });
 
-describe("getTodos = () вощвращает значение state.todos в виде массива", () => {
-    it(`проверим что getTodos().lenght = 4 при setState([{},{},{},{}])`, () => {
+describe("getTodos() возвращает значение state.todos в виде массива", () => {
+    it(`проверим что getTodos().lenght == 4 после setState([{},{},{},{}])`, () => {
         setState([{}, {}, {}, {}]).then(
             getTodos().then((res) => assert.equal(res.length, 4))
         );
     });
 });
 
-describe("updateTodos = (todos = []) обновляет значение state.todos", () => {
-    it(`проверим что updateTodos([{}]).lenght = 1 при setState([{},{},{},{}])`, () => {
+describe("updateTodos(todos = []) обновляет значение state.todos", () => {
+    it(`проверим что updateTodos([{}]).lenght == 1 после setState([{},{},{},{}])`, () => {
         setState([{}, {}, {}, {}]).then(
             updateTodos([{}]).then(
                 assert.equal(JSON.parse(localStorage.state).todos.length, 1)
             )
         );
+    });
+});
+//----------
+describe("getLoading() возвращает значение state.loading в виде примитива true/false", () => {
+    it(`проверим что getLoading() == true после setState()`, () => {
+        setState().then(getLoading().then((res) => assert.equal(res, true)));
+    });
+    it(`проверим что getLoading() == false после setState([],false)`, () => {
+        setState([], true).then(
+            getLoading().then((res) => assert.equal(res, false))
+        );
+    });
+});
+
+describe("updateLoading(loading) обновляет значение state.loading", () => {
+    it(`проверим что при updateLoading(false) после setState() state.loading == false`, () => {
+        setState().then(
+            updateLoading(false).then(
+                assert.equal(JSON.parse(localStorage.state).loading, false)
+            )
+        );
+    });
+    it(`проверим что при updateLoading(true) после setState([], false) state.loading == true`, () => {
+        setState().then(
+            updateLoading(true).then(
+                assert.equal(JSON.parse(localStorage.state).loading, true)
+            )
+        );
+    });
+});
+
+describe("getError() возвращает значение state.error в виде объекта Error", () => {
+    it(`проверим что typeof getError() == "object" после setState()`, () => {
+        setState().then(
+            getError().then((res) => assert.equal(typeof res, "object"))
+        );
+    });
+});
+
+describe("updateError(error) обновляет значение state.error", () => {
+    it(`проверим что при updateError({}) после setState() state.error != oldError`, () => {
+        setState().then(() => {
+            let oldError = getError();
+            updateError({}).then(
+                assert.equal(
+                    JSON.parse(localStorage.state).error != oldError,
+                    true
+                )
+            );
+        });
     });
 });

@@ -55,33 +55,33 @@ const editedTodo = (todos, todoEdited) => {
         throw new Error("Entering edited object not correct or null");
     }
 };
-//--------function for state------------------
-const setState = async (todos = []) => {
+//--------async function for state------------------
+const setState = async (todos = [], loading = true, error = new Error()) => {
     const state = {
         todos,
-        loading: true,
-        error: new Error(),
+        loading,
+        error,
     };
     localStorage.setItem("state", JSON.stringify(state));
 };
 
 const getTodos = async () => JSON.parse(localStorage.state).todos;
 
-const getLoading = async () => JSON.parse(localStorage.state).loading;
-
-const getError = async () => JSON.parse(localStorage.state).error;
-
 const updateTodos = async (todos = []) => {
     const state = { ...JSON.parse(localStorage.state), todos };
     localStorage.setItem("state", JSON.stringify(state));
 };
 
+const getLoading = async () => JSON.parse(localStorage.state).loading; //
+
 const updateLoading = async (loading) => {
-    const state = { ...JSON.parse(localStorage.state), loading };
+    const state = { ...JSON.parse(localStorage.state), loading }; //
     localStorage.setItem("state", JSON.stringify(state));
 };
 
+const getError = async () => JSON.parse(localStorage.state).error; //
+
 const updateError = async (error) => {
-    const state = { ...JSON.parse(localStorage.state), error };
+    const state = { ...JSON.parse(localStorage.state), error }; //
     localStorage.setItem("state", JSON.stringify(state));
 };

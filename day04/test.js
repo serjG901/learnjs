@@ -43,6 +43,15 @@ describe("removeTodo = (todoArray, todoId) удаляет объект из ма
     });
 });
 
+describe("removeCompleted = (todoArray) возвращает массив с невыполненными todo (todo.complete = false)", () => {
+    it(`в массиве 1 объект с comlete: true, проверим что останется 0 элементов после функции`, () => {
+        assert.equal(removeCompleted([{ complete: true }]).length, 0);
+    });
+    it(`в массиве 1 объект с comlete: false, проверим что останется 1 элемент после функции`, () => {
+        assert.equal(removeCompleted([{ complete: false }]).length, 1);
+    });
+});
+
 describe("changeTodoTitle = (todoArray, todoId, title) изменяет значение title в объекте", () => {
     it(`проверим изменение значения свойства title`, () => {
         assert.equal(
@@ -68,15 +77,6 @@ describe("changeTodoComplete = (todoArray, todoId, complete) изменяет з
                 .complete,
             false
         );
-    });
-});
-
-describe("removeCompleted = (todoArray) возвращает массив с невыполненными todo (todo.complete = false)", () => {
-    it(`в массиве 1 объект с comlete: true, проверим что останется 0 элементов после функции`, () => {
-        assert.equal(removeCompleted([{ complete: true }]).length, 0);
-    });
-    it(`в массиве 1 объект с comlete: false, проверим что останется 1 элемент после функции`, () => {
-        assert.equal(removeCompleted([{ complete:false }]).length, 1);
     });
 });
 

@@ -149,7 +149,7 @@ describe("updateTodos(todos = []) обновляет значение state.todo
         );
     });
 });
-//----------
+//---------may be dont need
 describe("getLoading() возвращает значение state.loading в виде примитива true/false", () => {
     it(`проверим что getLoading() == true после setState()`, () => {
         setState().then(getLoading().then((res) => assert.equal(res, true)));

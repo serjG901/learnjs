@@ -71,17 +71,17 @@ const updateTodos = async (todos = []) => {
     const state = { ...JSON.parse(localStorage.state), todos };
     localStorage.setItem("state", JSON.stringify(state));
 };
-
-const getLoading = async () => JSON.parse(localStorage.state).loading; //
+//-----may be dont need
+const getLoading = async () => JSON.parse(localStorage.state).loading;
 
 const updateLoading = async (loading) => {
-    const state = { ...JSON.parse(localStorage.state), loading }; //
+    const state = { ...JSON.parse(localStorage.state), loading };
     localStorage.setItem("state", JSON.stringify(state));
 };
 
-const getError = async () => JSON.parse(localStorage.state).error; //
+const getError = async () => JSON.parse(localStorage.state).error;
 
 const updateError = async (error) => {
-    const state = { ...JSON.parse(localStorage.state), error }; //
+    const state = { ...JSON.parse(localStorage.state), error };
     localStorage.setItem("state", JSON.stringify(state));
 };

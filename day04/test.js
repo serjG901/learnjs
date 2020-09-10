@@ -34,7 +34,6 @@ describe("addTodo = (todoArray, newTodo) добавляет объект в ма
         it(`newArray(${n}).length == ${n}`, () =>
             assert.equal(newArray(n).length, n));
     });
-    // ... другие тесты. Можно писать и describe, и it блоки.
 });
 
 describe("removeTodo = (todoArray, todoId) удаляет объект из массива", () => {
@@ -42,8 +41,6 @@ describe("removeTodo = (todoArray, todoId) удаляет объект из ма
         it(`removeTodo( [ { id: 1 } ], 1 ).lenght == 0`, () =>
             assert.equal(removeTodo([{ id: 1 }], 1).length, 0));
     });
-
-    // ... другие тесты. Можно писать и describe, и it блоки.
 });
 
 describe("changeTodoTitle = (todoArray, todoId, title) изменяет значение title в объекте", () => {
@@ -54,7 +51,6 @@ describe("changeTodoTitle = (todoArray, todoId, title) изменяет знач
             "newTitle"
         );
     });
-    // ... другие тесты. Можно писать и describe, и it блоки.
 });
 
 describe("changeTodoComplete = (todoArray, todoId, complete) изменяет значение complete в объекте", () => {
@@ -73,7 +69,15 @@ describe("changeTodoComplete = (todoArray, todoId, complete) изменяет з
             false
         );
     });
-    // ... другие тесты. Можно писать и describe, и it блоки.
+});
+
+describe("removeCompleted = (todoArray) возвращает массив с невыполненными todo (todo.complete = false)", () => {
+    it(`в массиве 1 объект с comlete: true, проверим что останется 0 элементов после функции`, () => {
+        assert.equal(removeCompleted([{ complete: true }]).length, 0);
+    });
+    it(`в массиве 1 объект с comlete: false, проверим что останется 1 элемент после функции`, () => {
+        assert.equal(removeCompleted([{ complete:false }]).length, 1);
+    });
 });
 
 describe("editedTodo = (todoArray, todoEdited) изменяет объект в массиве по его todoEdited.id", () => {
@@ -106,5 +110,4 @@ describe("editedTodo = (todoArray, todoEdited) изменяет объект в 
             "oldValue2"
         );
     });
-    // ... другие тесты. Можно писать и describe, и it блоки.
 });

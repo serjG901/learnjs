@@ -40,7 +40,7 @@ console.log(truncate("asd", 0));
 console.log("task 4 ----");
 const extractCurancyValue = (str) => {
     return str ? +str.slice(1, str.length) : 0;
-}
+};
 console.log(extractCurancyValue("$2342"));
 console.log(extractCurancyValue("@13"));
 console.log(extractCurancyValue("P13000000000"));

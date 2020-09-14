@@ -207,9 +207,7 @@
                 border: 1px solid #fff;
             }
             .todo-send-button:hover {
-                
                 background-color: rgb(109, 193, 221);
-                
             }
             .filter {
                 justify-content: center;
@@ -224,8 +222,19 @@
                 margin: 0 20px;
                 align-items: center;
             }
-            .activ {
-                background-color: lawngreen;
+            .filter div button {
+                background-color: #000;
+                color: #fff;
+                border: 1px solid #000;
+            }
+            .filter div button:hover {
+                background-color: #000;
+                border: 1px solid #fff;
+            }
+
+            .filter div .activ {
+                color: lawngreen;
+                border: 1px solid lawngreen;
             }
             .list {
                 top: 130px;
@@ -247,23 +256,25 @@
                 margin: 0 20px;
             }
             .todo .title {
-                flex: 5 1 auto;
+                flex: 1 1 auto;
             }
             .delete-button {
                 color: red;
                 background-color: #000;
-                border: 1px solid red;
+                border: 1px solid#666;
             }
             .delete-button:hover {
-                background-color: #333;
+                border: 1px solid red;
+
             }
             .edit-button {
                 color: lightblue;
                 background-color: #000;
-                border: 1px solid lightblue;
+                border: 1px solid#666;
             }
             .edit-button:hover {
-                background-color: #333;
+                
+                border: 1px solid lightblue;
             }
             .checked {
                 color: lightgreen;

@@ -7,7 +7,6 @@ const makeTodo = (title, text, complete) => {
     return {
         id: getId(),
         title,
-        text,
         complete,
     };
 };
@@ -16,9 +15,8 @@ const makeTodos = (n) => {
     let todos = [];
     for (let i = 1; i <= n; i++) {
         let title = `title${i}`;
-        let text = `text${i}`;
         let complete = false;
-        let todo = makeTodo(title, text, complete);
+        let todo = makeTodo(title, complete);
         todos = addTodo(todos, todo);
     }
     return todos;

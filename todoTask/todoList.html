@@ -5,13 +5,13 @@
         <div class="main">
             <div class="header-name">My Todo List</div>
             <div class="todo-send">
-                <input class="todo-send-input" type="text" />
-                <button class="todo-send-button">send</button>
+                <input class="todo-send-input" type="text" placeholder="what to do?"/>
+                <button class="todo-send-button">add</button>
             </div>
             <div class="filter">
-                <div>all todo</div>
-                <div>checked</div>
-                <div>unchecked</div>
+                <div><button class="activ">all todo</button></div>
+                <div><button>checked</button></div>
+                <div><button>unchecked</button></div>
             </div>
             <div class="list">
                 <div class="todo">
@@ -188,6 +188,10 @@
             body {
                 margin: 0;
                 background-color: #cccccc;
+                font-family: monospace;
+            }
+            button {
+                font-family: monospace;
             }
             div {
                 display: flex;
@@ -200,11 +204,13 @@
             }
             .header-name {
                 height: 50px;
-                background-color: #999999;
+                background-color: #333333;
                 top: 0px;
                 width: 100%;
                 position: fixed;
                 align-items: center;
+                color: #fff;
+                
             }
             .todo-send {
                 height: 50px;
@@ -218,12 +224,14 @@
                 flex: 2 1 auto;
                 font-size: 1rem;
                 text-align: center;
+                font-family: monospace;
             }
             .todo-send-button {
                 display: flex;
                 flex: 1 1 auto;
                 justify-content: center;
                 align-items: center;
+                background-color:lightblue;
             }
             .filter {
                 justify-content: center;
@@ -238,6 +246,9 @@
                 flex: 1 1 auto;
                 align-items: center;
             }
+            .activ {
+                background-color: lawngreen;
+            }
             .list {
                 top: 150px;
                 width: 100%;
@@ -248,9 +259,12 @@
                 flex-direction: column;
             }
             .todo {
-                background-color: #dd9e9e;
+                background-color: #d4d4d4;
                 border: 2px solid #fff;
                 padding: 10px;
+            }
+            .todo div {
+                flex: 1 1 auto;
             }
             .title {
                 flex: 5 1 auto;

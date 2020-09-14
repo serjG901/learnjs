@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head> </head>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
     <body>
         <div class="main">
             <div class="header-name"><b>my_todo_list</b></div>
@@ -19,28 +21,10 @@
             </div>
             <div class="list">
                 <div class="todo">
-                    <div class="title">me for todos in MY TODO LIST</div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
+                    <div class="title">todos in MY TODO LIST</div>
+                    <div class="checked">
+                        <input type="checkbox" onchange="check()" />checked
                     </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">title big</div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">MY TODO LIST</div>
-                    <div class="checked"><input type="checkbox" />checked</div>
                     <div class="edit">
                         <button class="edit-button">edit</button>
                     </div>
@@ -50,99 +34,9 @@
                 </div>
                 <div class="todo">
                     <div class="title">todos in MY TODO LIST</div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
+                    <div class="checked">
+                        <input type="checkbox" id="checked" />checked
                     </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">
-                        title big name title big name for todos in MY TODO LIST
-                    </div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">title bis in MY TODO LIST</div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">
-                        title big name title big name for todos in MY TODO LIST
-                    </div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">
-                        big name title big name for todos in MY TODO LIST
-                    </div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">
-                        title big name title big name for todos in MY TODO LIST
-                    </div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">todos in MY TODO LIST</div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">
-                        title big name title big name for todos in MY TODO LIST
-                    </div>
-                    <div class="checked"><input type="checkbox" />checked</div>
-                    <div class="edit">
-                        <button class="edit-button">edit</button>
-                    </div>
-                    <div class="delete">
-                        <button class="delete-button">delete</button>
-                    </div>
-                </div>
-                <div class="todo">
-                    <div class="title">
-                        title big name for todos in MY TODO LIST
-                    </div>
-                    <div class="checked"><input type="checkbox" />checked</div>
                     <div class="edit">
                         <button class="edit-button">edit</button>
                     </div>
@@ -152,146 +46,8 @@
                 </div>
             </div>
         </div>
-        <style>
-            body {
-                margin: 0;
-                background-color: #cccccc;
-                font-family: monospace;
-            }
-            button {
-                font-family: monospace;
-                border: none;
-                padding: 4px;
-                outline: none;
-            }
-            button:hover {
-                cursor: pointer;
-            }
-            div {
-                display: flex;
-                justify-content: center;
-            }
-            .main {
-                flex-direction: column;
-                max-height: 100%;
-                background-color: #cccccc;
-            }
-            .header-name {
-                height: 50px;
-                background-color: #000;
-                top: 0px;
-                width: 100%;
-                position: fixed;
-                align-items: center;
-                color: #fff;
-                font-size: 1.5rem;
-            }
-            .todo-send {
-                height: 30px;
-                background-color: #999999;
-                top: 50px;
-                width: 100%;
-                position: fixed;
-            }
-            .todo-send-input {
-                display: flex;
-                flex: 2 1 auto;
-                font-size: 1rem;
-                text-align: center;
-                font-family: monospace;
-            }
-            .todo-send-button {
-                display: flex;
-                flex: 1 1 auto;
-                justify-content: center;
-                align-items: center;
-                background-color: lightblue;
-                border: 1px solid lightblue;
-                color: #000;
-            }
-            .todo-send-button:hover {
-                border: 1px solid#fff;
-            }
-            .todo-send-button:active {
-                border: 1px solid lightblue;
-            }
-            .filter {
-                justify-content: center;
-                height: 50px;
-                background-color: #000;
-                color: #fff;
-                top: 80px;
-                width: 100%;
-                position: fixed;
-            }
-            .filter div {
-                margin: 0 20px;
-                align-items: center;
-            }
-            .filter div button {
-                background-color: #000;
-                color: #fff;
-                border: 1px solid #000;
-            }
-            .filter div button:hover {
-                border: 1px solid #fff;
-            }
-            .filter div button:active {
-                color: lawngreen;
-                border: 1px solid lawngreen;
-            }
-            .filter div .activ {
-                color: lawngreen;
-                border: 1px solid lawngreen;
-            }
-            .list {
-                top: 130px;
-                width: 100%;
-                position: absolute;
-                justify-content: center;
-                z-index: -1;
-                background-color: #000;
-                flex-direction: column;
-            }
-            .todo {
-                background-color: #666;
-                border: 2px solid #000;
-                padding: 10px;
-                color: #fff;
-                align-items: center;
-            }
-            .todo div {
-                margin: 0 20px;
-            }
-            .todo .title {
-                flex: 1 1 auto;
-            }
-            .delete-button {
-                color: red;
-                background-color: #000;
-                border: 1px solid#666;
-            }
-            .delete-button:hover {
-                border: 1px solid red;
-            }
-            .delete-button:active {
-                border: 1px solid #fff;
-            }
-            .edit-button {
-                color: lightblue;
-                background-color: #000;
-                border: 1px solid#666;
-            }
-            .edit-button:hover {
-                border: 1px solid lightblue;
-            }
-            .edit-button:active {
-                border: 1px solid #fff;
-            }
-            .checked {
-                color: lightgreen;
-            }
-        </style>
+        <style></style>
         <script src="todo.js"></script>
+        <script src="action.js"></script>
     </body>
 </html>

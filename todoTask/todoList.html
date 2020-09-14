@@ -10,7 +10,7 @@
                     type="text"
                     placeholder="what to do?"
                 />
-                <button class="todo-send-button">add</button>
+                <button class="todo-send-button">add todo</button>
             </div>
             <div class="filter">
                 <div><button class="activ">all todo</button></div>
@@ -162,6 +162,7 @@
                 font-family: monospace;
                 border: none;
                 padding: 4px;
+                outline: none;
             }
             button:hover {
                 cursor: pointer;
@@ -204,10 +205,14 @@
                 justify-content: center;
                 align-items: center;
                 background-color: lightblue;
-                border: 1px solid #fff;
+                border: 1px solid lightblue;
+                color: #000;
             }
             .todo-send-button:hover {
-                background-color: rgb(109, 193, 221);
+                border: 1px solid#fff;
+            }
+            .todo-send-button:active {
+                border: 1px solid lightblue;
             }
             .filter {
                 justify-content: center;
@@ -228,10 +233,12 @@
                 border: 1px solid #000;
             }
             .filter div button:hover {
-                background-color: #000;
                 border: 1px solid #fff;
             }
-
+            .filter div button:active {
+                color: lawngreen;
+                border: 1px solid lawngreen;
+            }
             .filter div .activ {
                 color: lawngreen;
                 border: 1px solid lawngreen;
@@ -265,7 +272,9 @@
             }
             .delete-button:hover {
                 border: 1px solid red;
-
+            }
+            .delete-button:active {
+                border: 1px solid #fff;
             }
             .edit-button {
                 color: lightblue;
@@ -273,8 +282,10 @@
                 border: 1px solid#666;
             }
             .edit-button:hover {
-                
                 border: 1px solid lightblue;
+            }
+            .edit-button:active {
+                border: 1px solid #fff;
             }
             .checked {
                 color: lightgreen;

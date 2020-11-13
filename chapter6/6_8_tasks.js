@@ -4,8 +4,7 @@ console.log("task 1 -------");
 const printNumbersInterval = (from, to) => {
     let i = from;
     const intervalID = setInterval(() => {
-        console.log("printNumbersInterval");
-        console.log(i++);
+        console.log(`printNumbersInterval: ${i++}`);
         if (i > to) clearInterval(intervalID);
     }, 1000);
 };
@@ -14,8 +13,7 @@ printNumbersInterval(5, 10);
 const printNumbersTimeout = (from, to) => {
     let i = from;
     setTimeout(function run() {
-        console.log("printNumbersTimeout");
-        console.log(i);
+        console.log(`printNumbersTimeout: ${i}`);
         if (i < to) setTimeout(run, 1000);
         i++;
     }, 1000);
